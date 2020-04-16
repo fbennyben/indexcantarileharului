@@ -8,7 +8,8 @@ collections:
   - name: "csv"
     label: Import CSV file
     folder: csv
-    create: false
+    create: true
     title: csv
+    slug: {{slug}}.csv
     fields:
       - { label: "File", name: "file", widget: "file" }
