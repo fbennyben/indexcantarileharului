@@ -1,13 +1,13 @@
 backend: 
   name: git-gateway
 
-media_folder: static/files/uploads
+media_folder: content/files/
 public_folder: /files/uploads
 
 collections:
   - name: "csv"
     label: Import CSV file
-    folder: content/csv
+    folder: content/files/csv
     create: true
     title: csv
     slug: file.csv

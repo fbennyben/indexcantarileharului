@@ -13,6 +13,14 @@ module.exports = {
 				path: `${__dirname}/src/images`
 			}
 		},
+		{
+			resolve: "gatsby-source-filesystem",
+			options: {
+				name: "csv",
+				path: `${__dirname}/content/files/csv`
+			}
+		},
+		"gatsby-transformer-csv",
 		"gatsby-transformer-sharp",
 		"gatsby-plugin-sharp",
 		{
