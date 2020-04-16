@@ -10,6 +10,6 @@ collections:
     folder: csv
     create: true
     title: csv
-    slug: {{slug}}.csv
+    slug: file.csv
     fields:
       - { label: "File", name: "file", widget: "file" }
