@@ -12,4 +12,5 @@ collections:
     title: csv
     slug: file.csv
     fields:
+      - { label: "Title", name: "title", default: "CSV File", widget: "hidden" }
       - { label: "File", name: "file", widget: "file" }
