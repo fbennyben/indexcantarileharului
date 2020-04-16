@@ -2,7 +2,7 @@ backend:
   name: git-gateway
 
 media_folder: content/files/
-public_folder: /files/uploads
+public_folder: /files/csv
 
 collections:
   - name: "csv"
