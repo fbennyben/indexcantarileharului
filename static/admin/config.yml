@@ -5,12 +5,13 @@ media_folder: content/files/
 public_folder: /files/csv
 
 collections:
-  - name: "csv"
-    label: Import CSV file
-    folder: content/files/csv
-    create: true
-    title: csv
-    slug: file.csv
-    fields:
-      - { label: "Title", name: "title", default: "CSV File", widget: "hidden" }
-      - { label: "File", name: "file", widget: "file" }
+  - label: "CSV File"
+    name: "csv"
+    files: 
+      - label: "CSV"
+        name: "csv"
+        file: content/files/index.csv
+        fields: 
+          - label: CSV File
+            name: csv
+            widget: file
