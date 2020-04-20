@@ -10,7 +10,7 @@ collections:
     files: 
       - label: "CSV"
         name: "csv"
-        file: content/files/index.csv
+        file: content/files/csv.json
         fields: 
           - label: CSV File
             name: csv
