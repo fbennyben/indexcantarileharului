@@ -1,0 +1,47 @@
+.indexList{
+	width: 1000px;
+	max-width: 100%;
+
+	margin: auto;
+}
+.headings{
+	font-size: 1rem;
+	font-weight: bold;
+}
+.headings .number,
+.headings .volume{
+	font-family: inherit;
+}
+.listItem{
+	padding: .5rem 1rem;
+	display: grid;
+	justify-items: start;
+	grid-template-rows: 1fr;
+	grid-template-columns: 3fr 1fr 1fr .6fr .6fr;
+	column-gap: 10px;
+
+	background: #fcfcfc;
+	margin: 0;
+}
+.listItem:nth-child(even){
+	background: #fff;
+}
+.name{
+	margin: 0;
+}
+.volume,
+.number,
+.pdf,
+.youtube{
+	width: 100%;
+	text-align: center;
+}
+
+.volume,
+.number{
+	font-family: "Abril Fatface", sans-serif;
+}
+.cell{
+	margin: 0;
+	padding: 0;
+}
