@@ -17,7 +17,7 @@ module.exports = {
 			resolve: "gatsby-source-filesystem",
 			options: {
 				name: "csv",
-				path: `${__dirname}/content/files`
+				path: `${__dirname}/content/uploads`
 			}
 		},
 		{
