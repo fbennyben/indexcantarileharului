@@ -10,8 +10,9 @@ collections:
     files: 
       - label: "CSV"
         name: "csv"
-        file: content/files/csv.json
+        file: content/files/index.json
         fields: 
           - label: CSV File
             name: csv
+            slug: "index.csv"
             widget: file
