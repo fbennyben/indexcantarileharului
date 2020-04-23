@@ -2,18 +2,21 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 // Components
-import SelectSearch from "react-select-search";
+import { Dropdown } from "semantic-ui-react";
+/* import SelectSearch from "react-select-search"; */
 
 // Css
 import styles from "./filter.module.css";
-import "react-select-search/style.css";
 
 export default function Filter({ songs, onChange }){
 	const[filter, setFilter] = useState([]);
 	const volumes = getListByKey(songs, "Volume");
 	const authors = getListByKey(songs, "Author");
 
-	const onVolumeChange = data => {
+	const onVolumeChange = (e, { value }) => {
+		const data = value;
+		console.log(data);
+
 		const newFilter = [...filter];
 
 		if(!data)
@@ -24,7 +27,9 @@ export default function Filter({ songs, onChange }){
 		setFilter(newFilter);
 	};
 
-	const onAuthorChange = data => {
+	const onAuthorChange = (e, { value }) => {
+		const data = value;
+
 		const newFilter = [...filter];
 
 		if(!data)
@@ -42,21 +47,23 @@ export default function Filter({ songs, onChange }){
 	return(
 		<div className={styles.container}>
 			<div className={styles.volumeFilter}>
-				<SelectSearch
-					options={volumes}
-					name="volume"
+				<Dropdown
 					placeholder="Volumul"
-					search={true}
+					search
+					selection
+					scrolling
+					options={volumes}
 					onChange={onVolumeChange}
 				/>
 			</div>
 
 			<div className={styles.authorFilter}>
-				<SelectSearch
-					options={authors}
-					name="author"
+				<Dropdown
 					placeholder="Autor"
-					search={true}
+					search
+					selection
+					scrolling
+					options={authors}
 					onChange={onAuthorChange}
 				/>
 			</div>
@@ -73,9 +80,10 @@ function getListByKey(list, key){
 		if(!values.includes(value) && value)
 			values.push(value);
 
-	values.unshift("");
+	const options = values.map( volume => ({ key: volume, text: volume, value: volume }));
+	options.unshift({ key: "nimic", text: "Nimic", value: "" });
 
-	return values.map( volume => ({ name: volume, value: volume }));
+	return options;
 }
 
 Filter.propTypes = {

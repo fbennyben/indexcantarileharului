@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css");
 body, html{
 	height: 100vh;
 	margin: 0;
