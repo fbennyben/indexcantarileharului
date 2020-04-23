@@ -46,6 +46,7 @@ export default function Input({ label, onSearch }){
 					className={styles.input}
 					value={value}
 					onChange={onChange}
+					onInput={onChange}
 					onFocus={onFocus}
 					onBlur={onBlur}
 					onKeyUp={onKeyUp}
@@ -56,5 +57,6 @@ export default function Input({ label, onSearch }){
 }
 
 Input.propTypes = {
-	label: PropTypes.string.isRequired
+	label: PropTypes.string.isRequired,
+	onSearch: PropTypes.func
 };
