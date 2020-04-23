@@ -47,11 +47,8 @@ exports.createPages = async ({ graphql, actions }) => {
 		`
 	);
 
-	console.log(jsonFile.data.filesJson.csv);
 	const csvFilePath = `${__dirname}/content${jsonFile.data.filesJson.csv}`;
 	const csvData = await parseCSV(csvFilePath);
-
-	console.log(csvData);
 
 	createPage({
 		path: "/",
