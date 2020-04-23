@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -7,8 +9,6 @@ import Input from "../components/Input/Input";
 import Filter from "../components/Filter/Filter";
 
 // Icons
-import PDFIcon from "../images/pdf.svg";
-import YoutubeIcon from "../images/youtube.svg";
 import ChevronIcon from "../images/chevron.svg";
 
 // Css
@@ -151,6 +151,28 @@ function Sortable({ keyName, activeKey, order, className, children, onChangeSort
 }
 
 function Row({ song }){
+	const data = useStaticQuery(graphql`
+	query {
+		youtube: file(relativePath: { eq: "youtube.png" }){
+			childImageSharp {
+				fixed(width: 20, height: 20){
+					...GatsbyImageSharpFixed
+				}
+			}
+		}
+		pdf: file(relativePath: { eq: "adobe.png" }){
+			childImageSharp {
+				fixed(width: 20, height: 20){
+					...GatsbyImageSharpFixed
+				}
+			}
+		}
+	}
+	`);
+
+	const pdfImg = data.pdf.childImageSharp.fixed;
+	const youtubeImg = data.youtube.childImageSharp.fixed;
+
 	return(
 		<li key={song.id} className={styles.listItem}>
 			<span className={classNames(styles.name, styles.cell)}>{song.Name}</span>
@@ -159,13 +181,13 @@ function Row({ song }){
 			<span className={classNames(styles.volume, styles.cell)}>{song.Volume}</span>
 			<span className={classNames(styles.pdf, styles.cell)}>
 				{song.PDF
-					? <a href={song.PDF}><PDFIcon /></a>
+					? <a href={song.PDF} target="_blank" rel="noopener noreferrer"><Img fixed={pdfImg} alt="PDF" /></a>
 					: ""
 				}
 			</span>
 			<span className={classNames(styles.youtube, styles.cell)}>
 				{song.Youtube
-					? <a href={song.Youtube}><YoutubeIcon /></a>
+					? <a href={song.Youtube} target="_blank" rel="noopener noreferrer"><Img fixed={youtubeImg} alt="Youtube" /></a>
 					: ""
 				}
 			</span>

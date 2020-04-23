@@ -48,13 +48,11 @@
 .number,
 .pdf,
 .youtube{
+	display: flex;
+	align-items: center;
+
 	width: 100%;
 	text-align: center;
-}
-
-.volume,
-.number{
-	font-family: "Abril Fatface", sans-serif;
 }
 .cell{
 	margin: 0;
