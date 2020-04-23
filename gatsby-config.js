@@ -21,9 +21,30 @@ module.exports = {
 			}
 		},
 		{
+			resolve: "gatsby-source-filesystem",
+			options: {
+				name: "json",
+				path: `${__dirname}/content/files`
+			}
+		},
+		{
 			resolve: "gatsby-transformer-csv",
 			options: {
 				typeName: "Csv"
+			}
+		},
+		{
+			resolve: "gatsby-transformer-json",
+			options: {
+				path: `${__dirname}/content/files`
+			}
+		},
+		{
+			resolve: "gatsby-plugin-react-svg",
+			options: {
+				rule: {
+					include: /src\/images/
+				}
 			}
 		},
 		"gatsby-transformer-sharp",

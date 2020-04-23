@@ -1,0 +1,43 @@
+.container{
+	position: sticky;
+
+	width: 100%;
+	height: 40px;
+
+	margin: 1rem 0;
+}
+.labelWrapper{
+	position: relative;
+}
+.icon{
+	position: absolute;
+	left: 1rem;
+	top: 0;
+	width: 24px;
+	height: 24px;
+}
+.label{
+	box-sizing: border-box;
+	position: absolute;
+	cursor: text;
+
+	left: 3.5rem;
+	top: 0;
+	color: #555;
+}
+.container.focus .label{
+	display: none;
+}
+.input{
+	box-sizing: border-box;
+	width: 100%;
+	font-size: 1rem;
+	padding: .6rem 1rem .6rem 3.5rem;
+
+	border-radius: 3px;
+
+	box-shadow: none;
+	border: none;
+	background: #f9f9f9;
+	box-shadow: 0 2px 4px #ccc;
+}

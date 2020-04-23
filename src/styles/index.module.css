@@ -1,8 +1,23 @@
-.indexList{
+.main{
+	height: 100vh;
+
+	overflow-y: scroll;
+}
+.container{
 	width: 1000px;
 	max-width: 100%;
 
 	margin: auto;
+}
+
+.indexList{
+	width: 100%;
+
+	padding: 0;
+	margin: 0;
+
+	border-radius: 3px;
+	margin-bottom: 30px;
 }
 .headings{
 	font-size: 1rem;
@@ -13,18 +28,18 @@
 	font-family: inherit;
 }
 .listItem{
-	padding: .5rem 1rem;
+	padding: .7rem 1rem;
 	display: grid;
 	justify-items: start;
 	grid-template-rows: 1fr;
-	grid-template-columns: 3fr 1fr 1fr .6fr .6fr;
+	grid-template-columns: 3fr 2fr .8fr .6fr .6fr .6fr;
 	column-gap: 10px;
 
-	background: #fcfcfc;
+	background: #dfdfdf;
 	margin: 0;
 }
 .listItem:nth-child(even){
-	background: #fff;
+	background: #eee;
 }
 .name{
 	margin: 0;
@@ -44,4 +59,25 @@
 .cell{
 	margin: 0;
 	padding: 0;
+}
+.sortable{
+	cursor: pointer;
+	text-decoration: underline;
+}
+.chevron{
+	width: 18px;
+	height: 18px;
+
+	vertical-align: middle;
+	margin-left: 3px;
+	display: none;
+}
+.sortableActive .chevron{
+	display: inline-block;
+}
+.sortableActive.asc .chevron{
+	transform: rotate(0deg);
+}
+.sortableActive.desc .chevron{
+	transform: rotate(180deg);
 }
