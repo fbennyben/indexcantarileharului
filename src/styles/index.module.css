@@ -37,7 +37,7 @@
 	display: block;
 	text-align: center;
 	font-weight: lighter;
-	font-size: .9rem;
+	font-size: .8rem;
 }
 .headings{
 	font-size: 1rem;
@@ -127,14 +127,9 @@
 
 @media only screen and (max-width: 600px){
 	.listItem{
-		width: 100%;
-		grid-template-rows: 1.2rem 1rem 2rem;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-template-areas: 
-			"name name name name"
-			"author author author author"
-			"volume number pdf youtube"
-		;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
 
 	.headings{
@@ -158,20 +153,37 @@
 	}
 
 
-	.name{
+	.name{ 
 		font-size: 1rem;
 		font-weight: bold;
+		width: 100%;
 	}
 	.author{
 		font-size: .8rem;
 		color: #555;
+		width: 100%;
 	}
 	.volume,
-	.number{
+	.number,
+	.pdf,
+	.youtube{
+		margin-top: .4rem;
+		width: 2rem;
 		font-size: .8rem;
 		font-weight: lighter;
 		color: #555;
 
 		align-self: end;
+	}
+
+	.volume{
+		margin-left: 15%;
+	}
+	.pdf{
+		margin-left: auto;
+		margin-right: 1rem;
+	}
+	.youtube{
+		margin-right: 1rem;
 	}
 }
