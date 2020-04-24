@@ -31,8 +31,12 @@
 	padding: .7rem 1rem;
 	display: grid;
 	justify-items: start;
-	grid-template-rows: 1fr;
+	align-items: center;
+	grid-template-rows:3rem;
 	grid-template-columns: 3fr 2fr .8fr .6fr .6fr .6fr;
+	grid-template-areas: 
+		"name author number volume pdf youtube"
+	;
 	column-gap: 10px;
 
 	background: #dfdfdf;
@@ -43,6 +47,22 @@
 }
 .name{
 	margin: 0;
+	grid-area: name;
+}
+.author{
+	grid-area: author;
+}
+.number{
+	grid-area: number;
+}
+.volume{
+	grid-area: volume;
+}
+.pdf{
+	grid-area: pdf;
+}
+.youtube{
+	grid-area: youtube;
 }
 .volume,
 .number,
@@ -53,6 +73,11 @@
 
 	width: 100%;
 	text-align: center;
+}
+.pdf a,
+.youtube a{
+	display: flex;
+	align-items: center;
 }
 .cell{
 	margin: 0;
@@ -78,4 +103,37 @@
 }
 .sortableActive.desc .chevron{
 	transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 1000px){
+	.listItem{
+		grid-template-rows: 1.2rem 1rem 2rem;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-areas: 
+			"name name name name"
+			"author author author author"
+			"volume number pdf youtube"
+		;
+	}
+
+	.headings{
+		display:none;
+	}
+
+	.name{
+		font-size: 1rem;
+		font-weight: bold;
+	}
+	.author{
+		font-size: .8rem;
+		color: #555;
+	}
+	.volume,
+	.number{
+		font-size: .8rem;
+		font-weight: lighter;
+		color: #555;
+
+		align-self: end;
+	}
 }

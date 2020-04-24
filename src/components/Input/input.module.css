@@ -43,3 +43,9 @@
 	background: #f9f9f9;
 	box-shadow: 0 2px 4px #ccc;
 }
+
+@media only screen and (max-width: 1000px){
+	.container{
+		margin-top: 0;
+	}
+}

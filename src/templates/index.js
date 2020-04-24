@@ -155,14 +155,14 @@ function Row({ song }){
 	query {
 		youtube: file(relativePath: { eq: "youtube.png" }){
 			childImageSharp {
-				fixed(width: 20, height: 20){
+				fixed(width: 34, height: 30){
 					...GatsbyImageSharpFixed
 				}
 			}
 		}
 		pdf: file(relativePath: { eq: "adobe.png" }){
 			childImageSharp {
-				fixed(width: 20, height: 20){
+				fixed(width: 30, height: 30){
 					...GatsbyImageSharpFixed
 				}
 			}
