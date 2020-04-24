@@ -30,7 +30,7 @@ export function filterSongs(songs, options){
 	}
 
 	songsCopy = songsCopy.filter( song => {
-		if(regex.test(song.Name))
+		if(regex.test(song.Name.replace(/((-+)|(,+)|("+)|('+))/, "")))
 			return true;
 
 		return false;
