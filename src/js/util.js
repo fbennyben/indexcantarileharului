@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import arraySort from "array-sort";
 
 /**
@@ -30,7 +31,14 @@ export function filterSongs(songs, options){
 	}
 
 	songsCopy = songsCopy.filter( song => {
-		if(regex.test(song.Name.replace(/((-+)|(,+)|("+)|('+))/, "")))
+		if(
+			regex.test(song.Name.replace(/((-)|(,)|(")|('))/g, "")) ||
+			regex.test(song.Name.replace(/-/g, "")) ||
+			regex.test(song.Name.replace(/,/g)) ||
+			regex.test(song.Name.replace(/"/g, "")) ||
+			regex.test(song.Name.replace(/'/g, "")) ||
+			regex.test(song.Name)
+		)
 			return true;
 
 		return false;
@@ -60,4 +68,22 @@ export function isNullOrUndefined(value){
 		return true;
 
 	return false;
+}
+
+export function useDebounce(value, delay){
+	const[debouncedValue, setDebouncedValue] = useState(value);
+
+	useEffect(() => {
+		const handler = setTimeout(() => {
+			setDebouncedValue(value);
+		}, delay);
+
+		return() => {
+			clearTimeout(handler);
+		};
+	},
+
+	[value, delay]);
+
+	return debouncedValue;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -6,17 +6,17 @@ import classNames from "classnames";
 import SearchIcon from "../../images/search.svg";
 
 import styles from "./input.module.css";
+import { useDebounce } from "../../js/util";
 
 export default function Input({ label, onSearch }){
 	const[value, setValue] = useState("");
 	const[focus, setFocus] = useState(false);
+	const debouncedValue = useDebounce(value, 200);
 
 	const onChange = e => {
 		const newValue = e.target.value;
 
 		setValue(newValue);
-
-		onSearch(newValue);
 	};
 
 	const onFocus = e => {
@@ -32,6 +32,10 @@ export default function Input({ label, onSearch }){
 		if(e.key === "Enter")
 			onSearch(value);
 	};
+
+	useEffect( () => {
+		onSearch(debouncedValue);
+	}, [debouncedValue]);
 
 	return(
 		<div className={classNames({
