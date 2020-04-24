@@ -71,6 +71,20 @@ export default function IndexTemplate(data){
 			<div className={styles.container}>
 				<Input label="Caută..." onSearch={onSearch} />
 				<Filter songs={rawSongs} onChange={onFilterChange} />
+				<ul className={styles.legend}>
+					<li>
+						<span className={styles.legendKey}>CH</span>
+						<span className={styles.legendDesc}>Cântările Harului</span>
+					</li>
+					<li>
+						<span className={styles.legendKey}>CD</span>
+						<span className={styles.legendDesc}>Cântările Domnului</span>
+					</li>
+					<li>
+						<span className={styles.legendKey}>CB</span>
+						<span className={styles.legendDesc}>Cântările Bibliei</span>
+					</li>
+				</ul>
 				<List songs={songs} sort={sort} order={order} onChangeSort={onChangeSort} />
 			</div>
 		</main>

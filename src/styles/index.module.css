@@ -19,6 +19,25 @@
 	border-radius: 3px;
 	margin-bottom: 30px;
 }
+.legend{
+	padding: 0;
+	margin: 2rem 0 1rem;
+	list-style: none;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.legendKey{
+	display: block;
+	text-align: center;
+	font-weight: bold;
+}
+.legendDesc{
+	display: block;
+	text-align: center;
+	font-weight: lighter;
+}
 .headings{
 	font-size: 1rem;
 	font-weight: bold;
@@ -116,9 +135,6 @@
 		;
 	}
 
-	/* .headings{
-		display:none;
-	} */
 	.headings{
 		display: flex;
 		justify-content: space-evenly;
