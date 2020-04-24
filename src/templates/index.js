@@ -169,23 +169,23 @@ function Row({ song }){
 	query {
 		youtube: file(relativePath: { eq: "youtube.png" }){
 			childImageSharp {
-				fixed(width: 34, height: 30){
-					...GatsbyImageSharpFixed
+				fluid(maxWidth: 200){
+					...GatsbyImageSharpFluid
 				}
 			}
 		}
 		pdf: file(relativePath: { eq: "adobe.png" }){
 			childImageSharp {
-				fixed(width: 30, height: 30){
-					...GatsbyImageSharpFixed
+				fluid(maxWidth: 200){
+					...GatsbyImageSharpFluid
 				}
 			}
 		}
 	}
 	`);
 
-	const pdfImg = data.pdf.childImageSharp.fixed;
-	const youtubeImg = data.youtube.childImageSharp.fixed;
+	const pdfImg = data.pdf.childImageSharp.fluid;
+	const youtubeImg = data.youtube.childImageSharp.fluid;
 
 	return(
 		<li key={song.id} className={styles.listItem}>
@@ -195,13 +195,13 @@ function Row({ song }){
 			<span className={classNames(styles.volume, styles.cell)}>{song.Volume}</span>
 			<span className={classNames(styles.pdf, styles.cell)}>
 				{song.PDF
-					? <a href={song.PDF} target="_blank" rel="noopener noreferrer"><Img fixed={pdfImg} alt="PDF" /></a>
+					? <a href={song.PDF} target="_blank" rel="noopener noreferrer"><Img className={styles.image} fluid={pdfImg} alt="PDF" /></a>
 					: ""
 				}
 			</span>
 			<span className={classNames(styles.youtube, styles.cell)}>
 				{song.Youtube
-					? <a href={song.Youtube} target="_blank" rel="noopener noreferrer"><Img fixed={youtubeImg} alt="Youtube" /></a>
+					? <a href={song.Youtube} target="_blank" rel="noopener noreferrer"><Img className={styles.image} fluid={youtubeImg} alt="Youtube" /></a>
 					: ""
 				}
 			</span>
