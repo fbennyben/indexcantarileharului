@@ -116,9 +116,29 @@
 		;
 	}
 
-	.headings{
+	/* .headings{
 		display:none;
+	} */
+	.headings{
+		display: flex;
+		justify-content: space-evenly;
+		justify-items: center;
+		background: #bdbdbd
 	}
+	.headings span{
+		display: none;
+		font-size: 1.1rem;
+		font-weight: bold;
+		color: #000;
+		margin: 0 .5rem;
+	}
+	.headings .name,
+	.headings .author,
+	.headings .number{
+		display: inline-block;
+		max-width: 110px;
+	}
+
 
 	.name{
 		font-size: 1rem;
