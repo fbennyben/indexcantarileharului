@@ -37,6 +37,7 @@
 	display: block;
 	text-align: center;
 	font-weight: lighter;
+	font-size: .9rem;
 }
 .headings{
 	font-size: 1rem;
@@ -124,8 +125,9 @@
 	transform: rotate(180deg);
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 600px){
 	.listItem{
+		width: 100%;
 		grid-template-rows: 1.2rem 1rem 2rem;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 		grid-template-areas: 
