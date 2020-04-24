@@ -141,7 +141,8 @@
 
 	.headings{
 		display: flex;
-		justify-content: space-evenly;
+		flex-wrap: nowrap;
+		justify-content: space-between;
 		justify-items: center;
 		background: #bdbdbd
 	}
@@ -155,8 +156,8 @@
 	.headings .name,
 	.headings .author,
 	.headings .number{
-		display: inline-block;
-		max-width: 110px;
+		display: block;
+		flex-basis: 100px;
 	}
 
 
