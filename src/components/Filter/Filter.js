@@ -11,8 +11,10 @@ import styles from "./filter.module.css";
 
 export default function Filter({ songs, onChange }){
 	const[filter, setFilter] = useState([]);
-	const volumesList = getListByKey(songs, "Volume");
-	const authorsList = getListByKey(songs, "Author");
+	const[author, setAuthor] = useState(null);
+	const[volume, setVolume] = useState(null);
+	const volumesList = getListByKey(songs, "Volume", { Author: author });
+	const authorsList = getListByKey(songs, "Author", { Volume: volume });
 	const volumes = sortVolumes(volumesList);
 	const authors = sortAuthors(authorsList);
 
@@ -27,6 +29,7 @@ export default function Filter({ songs, onChange }){
 		else
 			newFilter[0] = data;
 
+		setVolume(value);
 		setFilter(newFilter);
 	};
 
@@ -40,6 +43,7 @@ export default function Filter({ songs, onChange }){
 		else
 			newFilter[1] = data;
 
+		setAuthor(value);
 		setFilter(newFilter);
 	};
 
@@ -110,13 +114,22 @@ function sortVolumes(volumes){
 	return sortedVolumes;
 }
 
-function getListByKey(list, key){
-	const allValues = list.map( song => song[key]);
-	const values = [];
+function getListByKey(list, key, include){
+	const allValues = list.filter( song => {
+		if(!include) return true;
 
-	for(let value of allValues)
+		const key = Object.keys(include)[0];
+		const value = include[key];
+
+		// If the value of include is falsy, return true for every item in the array
+		if(!value) return true;
+		return song[key] === include[key];
+	}).map( song => song[key]);
+	const values = [ ...new Set(allValues) ].filter( value => value);
+
+	/* for(let value of allValues)
 		if(!values.includes(value) && value)
-			values.push(value);
+			values.push(value); */
 
 	const options = values.map( volume => ({ key: volume, text: volume, value: volume }));
 
